@@ -9,9 +9,18 @@ import Mustache from "../mustaches";
 import React from "react";
 
 export default function Avataram(props: AvataramConfig) {
-  const { backgroundColor, backgroundShape, headColor, headShape } = props;
+  const {
+    backgroundColor,
+    backgroundShape,
+    headColor,
+    headShape,
+    bodyColor,
+    bodyShape,
+  } = props;
+
   return (
     <svg
+      id="svgRa"
       style={{
         width: "50%",
         height: "50%",
@@ -36,7 +45,7 @@ export default function Avataram(props: AvataramConfig) {
         <Head headColor={headColor} headShape={headShape} />
 
         {/* <!-- Body/Clothes --> */}
-        <Body />
+        <Body bodyColor={bodyColor} bodyShape={bodyShape} />
 
         {/* <!-- Hair --> */}
         <Hair />
@@ -51,11 +60,11 @@ export default function Avataram(props: AvataramConfig) {
         <Mustache />
       </g>
 
-      <defs>
+      {/* <defs>
         <clipPath id="clip0_274_4378">
           <rect width="64" height="64" rx="32" />
         </clipPath>
-      </defs>
+      </defs> */}
     </svg>
   );
 }

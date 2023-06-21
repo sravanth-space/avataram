@@ -1,17 +1,19 @@
 import React from "react";
 import Normal from "./normal";
 import { HeadColor, HeadShape } from "../../types";
+import Wide from "./wide";
+import Thin from "./thin";
 
 function Head(props: { headColor: HeadColor; headShape: HeadShape }) {
   const { headColor, headShape } = props;
 
-  switch (props.headShape) {
+  switch (headShape) {
     case "wide":
-      return <rect width="64" height="64" rx="32" fill={headColor} />;
+      return <Wide headColor={headColor} />;
     case "thin":
-      return <rect width="64" height="64" rx="32" fill={headColor} />;
+      return <Thin headColor={headColor} />;
     default:
-      return <Normal />;
+      return <Normal headColor={headColor} />;
   }
 }
 

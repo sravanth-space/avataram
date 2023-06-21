@@ -1,15 +1,15 @@
 import React from "react";
 import TShirt from "./t-shirt";
+import { BodyColor, BodyShape } from "../../types";
+import Golf from "./golf";
 
-function Body(props) {
-  let color;
-  switch (props.type) {
-    case "wide":
-      return <rect width="64" height="64" rx="32" fill={color} />;
-    case "thin":
-      return <rect width="64" height="64" rx="32" fill={color} />;
+function Body(props: { bodyColor: BodyColor; bodyShape: BodyShape }) {
+  const { bodyColor, bodyShape } = props;
+  switch (bodyShape) {
+    case "golf":
+      return <Golf bodyColor={bodyColor} />;
     default:
-      return <TShirt />;
+      return <TShirt bodyColor={bodyColor} />;
   }
 }
 
