@@ -24,7 +24,7 @@ import {
   MUSTACHE,
   MUSTACHE_COLORS,
   MouthType,
-  Mustache,
+  MustacheType,
   MustacheColor,
 } from "./types";
 import { BackgroundColor } from "./types";
@@ -48,7 +48,7 @@ function App() {
     eyesType: "confident",
     isBlushes: true,
 
-    mustache: "freddy",
+    mustacheType: "freddy",
     mustacheColor: "black",
 
     hasGlasses: false,
@@ -106,7 +106,9 @@ function App() {
   const [eyesType, setEyesType] = useState<EyesType>(defaultConfig.eyesType);
   const [isBlushes, setIsBlushes] = useState<Boolean>(defaultConfig.isBlushes);
 
-  const [mustache, setMustache] = useState<Mustache>(defaultConfig.mustache);
+  const [mustacheType, setMustacheType] = useState<MustacheType>(
+    defaultConfig.mustacheType
+  );
   const [mustacheColor, setMustacheColor] = useState<MustacheColor>(
     defaultConfig.mustacheColor
   );
@@ -129,7 +131,7 @@ function App() {
         mouthType={mouthType}
         eyesType={eyesType}
         isBlushes={isBlushes}
-        mustache={mustache}
+        mustacheType={mustacheType}
         mustacheColor={mustacheColor}
         hasGlasses={hasGlasses}
       />
@@ -318,10 +320,10 @@ function App() {
         <li>
           <label>Mustache:</label>
           <select
-            value={mustache}
+            value={mustacheType}
             title="Eyes"
             onChange={e => {
-              setMustache(e.target.value as Mustache);
+              setMustacheType(e.target.value as MustacheType);
             }}
           >
             {MUSTACHE.map((item, idx) => (

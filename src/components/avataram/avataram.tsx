@@ -2,6 +2,7 @@ import { AvataramConfig } from "../../types";
 import Background from "../background";
 import Body from "../body";
 import Eyes from "../eyes";
+import Glasses from "../glasses";
 import Hair from "../hair";
 import Head from "../head";
 import Mouth from "../mouth";
@@ -21,7 +22,7 @@ export default function Avataram(props: AvataramConfig) {
     mouthType,
     eyesType,
     isBlushes,
-    mustache,
+    mustacheType,
     mustacheColor,
     hasGlasses,
   } = props;
@@ -62,10 +63,12 @@ export default function Avataram(props: AvataramConfig) {
         <Mouth mouthType={mouthType} />
 
         {/* <!-- Eyes --> */}
-        <Eyes eyesType={eyesType} />
+        <Eyes eyesType={eyesType} isBlushes={isBlushes} />
 
         {/* <!-- Mustaches --> */}
-        <Mustache />
+        <Mustache mustacheType={mustacheType} mustacheColor={mustacheColor} />
+
+        {hasGlasses ? <Glasses /> : <></>}
       </g>
 
       {/* <defs>

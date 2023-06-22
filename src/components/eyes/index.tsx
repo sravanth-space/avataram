@@ -4,14 +4,17 @@ import { EyesType } from "../../types";
 import Normal from "./normal";
 import Happy from "./happy";
 
-export default function Eyes(props: { eyesType: EyesType }) {
-  const { eyesType } = props;
+export default function Eyes(props: {
+  eyesType: EyesType;
+  isBlushes: Boolean;
+}) {
+  const { eyesType, isBlushes } = props;
   switch (eyesType) {
     case "happy":
-      return <Happy />;
+      return <Happy isBlushes={isBlushes} />;
     case "normal":
-      return <Normal />;
+      return <Normal isBlushes={isBlushes} />;
     default:
-      return <Confident />;
+      return <Confident isBlushes={isBlushes} />;
   }
 }

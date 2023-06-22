@@ -1,11 +1,19 @@
 import React from "react";
 
-export default function Confident() {
+export default function Confident(props: { isBlushes: Boolean }) {
+  const { isBlushes } = props;
   return (
     <>
       <g clipPath="url(#clip5_274_4378)">
-        <rect x="24" y="38" width="5" height="3" rx="1.5" fill="#FF859B" />
-        <rect x="43" y="38" width="4" height="3" rx="1.5" fill="#FF859B" />
+        {isBlushes ? (
+          <>
+            <rect x="24" y="38" width="5" height="3" rx="1.5" fill="#FF859B" />
+            <rect x="43" y="38" width="4" height="3" rx="1.5" fill="#FF859B" />
+          </>
+        ) : (
+          <></>
+        )}
+
         <path
           d="M43 36.5C43 37.3284 42.3284 38 41.5 38V38C40.6716 38 40 37.3284 40 36.5L40 35.2727C40 35.1221 40.1221 35 40.2727 35L42.7273 35C42.8779 35 43 35.1221 43 35.2727L43 36.5Z"
           fill="#1B0B47"

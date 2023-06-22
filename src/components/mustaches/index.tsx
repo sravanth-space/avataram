@@ -1,14 +1,22 @@
 import React from "react";
 import Freddy from "./freddy";
-
-export default function Mustache(props) {
-  let color;
-  switch (props.type) {
-    case "wide":
-      return <rect width="64" height="64" rx="32" fill={color} />;
-    case "thin":
-      return <rect width="64" height="64" rx="32" fill={color} />;
+import { MustacheType, MustacheColor } from "../../types";
+import Horshoe from "./horshoe";
+import PencilThin from "./pencilThin";
+import PencilThinBeard from "./pencilThinBeard";
+export default function Mustache(props: {
+  mustacheType: MustacheType;
+  mustacheColor: MustacheColor;
+}) {
+  const { mustacheType, mustacheColor } = props;
+  switch (mustacheType) {
+    case "hor-shoe":
+      return <Horshoe mustacheColor={mustacheColor} />;
+    case "pencil-thin":
+      return <PencilThin mustacheColor={mustacheColor} />;
+    case "pencil-thin-beard":
+      return <PencilThinBeard mustacheColor={mustacheColor} />;
     default:
-      return <Freddy />;
+      return <Freddy mustacheColor={mustacheColor} />;
   }
 }

@@ -113,7 +113,7 @@ export const EYES = ['normal', 'confident', 'happy'] as const
 export type EyesType = typeof EYES[number]
 
 export const MUSTACHE = ['freddy', 'hor-shoe', 'pencil-thin', 'pencil-thin-beard'] as const
-export type Mustache = typeof MUSTACHE[number]
+export type MustacheType = typeof MUSTACHE[number]
 export const MUSTACHE_COLORS = ["red", "brown", "black"] as const
 export type MustacheColor = typeof MUSTACHE_COLORS[number]
 
@@ -135,7 +135,7 @@ export interface AvataramConfig {
     eyesType: EyesType,
     isBlushes: Boolean,
 
-    mustache: Mustache,
+    mustacheType: MustacheType,
     mustacheColor: MustacheColor,
 
     hasGlasses: Boolean

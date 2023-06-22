@@ -1,6 +1,8 @@
 import React from "react";
+import { MustacheColor } from "../../types";
 
-export default function Freddy() {
+export default function Freddy(props: { mustacheColor: MustacheColor }) {
+  const { mustacheColor } = props;
   return (
     <>
       <g clipPath="url(#clip6_274_4378)">
