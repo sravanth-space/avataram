@@ -19,7 +19,7 @@ export default function Avataram(props: AvataramConfig) {
     hairStyle,
     hairColor,
     mouthType,
-    eyes,
+    eyesType,
     isBlushes,
     mustache,
     mustacheColor,
@@ -62,7 +62,7 @@ export default function Avataram(props: AvataramConfig) {
         <Mouth mouthType={mouthType} />
 
         {/* <!-- Eyes --> */}
-        <Eyes />
+        <Eyes eyesType={eyesType} />
 
         {/* <!-- Mustaches --> */}
         <Mustache />

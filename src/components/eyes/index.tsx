@@ -1,13 +1,16 @@
 import React from "react";
 import Confident from "./confident";
+import { EyesType } from "../../types";
+import Normal from "./normal";
+import Happy from "./happy";
 
-export default function Eyes(props) {
-  let color;
-  switch (props.type) {
-    case "wide":
-      return <rect width="64" height="64" rx="32" fill={color} />;
-    case "thin":
-      return <rect width="64" height="64" rx="32" fill={color} />;
+export default function Eyes(props: { eyesType: EyesType }) {
+  const { eyesType } = props;
+  switch (eyesType) {
+    case "happy":
+      return <Happy />;
+    case "normal":
+      return <Normal />;
     default:
       return <Confident />;
   }

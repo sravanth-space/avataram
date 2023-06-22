@@ -110,7 +110,7 @@ export const MOUTH = ['normal', 'teeth'] as const
 export type MouthType = typeof MOUTH[number]
 
 export const EYES = ['normal', 'confident', 'happy'] as const
-export type Eyes = typeof EYES[number]
+export type EyesType = typeof EYES[number]
 
 export const MUSTACHE = ['freddy', 'hor-shoe', 'pencil-thin', 'pencil-thin-beard'] as const
 export type Mustache = typeof MUSTACHE[number]
@@ -132,7 +132,7 @@ export interface AvataramConfig {
 
     mouthType: MouthType,
 
-    eyes: Eyes,
+    eyesType: EyesType,
     isBlushes: Boolean,
 
     mustache: Mustache,

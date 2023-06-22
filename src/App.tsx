@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Avataram from "./components/avataram/avataram";
 import {
   AvataramConfig,
@@ -10,7 +10,8 @@ import {
   BackgroundShape,
   BodyColor,
   BodyShape,
-  Eyes,
+  EYES,
+  EyesType,
   HAIR_COLORS,
   HAIR_STYLES,
   HEAD_COLORS,
@@ -44,7 +45,7 @@ function App() {
 
     mouthType: "normal",
 
-    eyes: "confident",
+    eyesType: "confident",
     isBlushes: true,
 
     mustache: "freddy",
@@ -102,7 +103,7 @@ function App() {
     defaultConfig.mouthType
   );
 
-  const [eyes, setEyes] = useState<Eyes>(defaultConfig.eyes);
+  const [eyesType, setEyesType] = useState<EyesType>(defaultConfig.eyesType);
   const [isBlushes, setIsBlushes] = useState<Boolean>(defaultConfig.isBlushes);
 
   const [mustache, setMustache] = useState<Mustache>(defaultConfig.mustache);
@@ -126,7 +127,7 @@ function App() {
         hairStyle={hairStyle}
         hairColor={hairColor}
         mouthType={mouthType}
-        eyes={eyes}
+        eyesType={eyesType}
         isBlushes={isBlushes}
         mustache={mustache}
         mustacheColor={mustacheColor}
@@ -290,13 +291,13 @@ function App() {
         <li>
           <label>Eyes:</label>
           <select
-            value={eyes}
+            value={eyesType}
             title="Eyes"
             onChange={e => {
-              setEyes(e.target.value as Eyes);
+              setEyesType(e.target.value as EyesType);
             }}
           >
-            {MOUTH.map((item, idx) => (
+            {EYES.map((item, idx) => (
               <option value={item} key={idx}>
                 {item.toUpperCase()}
               </option>
