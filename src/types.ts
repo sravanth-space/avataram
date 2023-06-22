@@ -107,7 +107,7 @@ export type HairStyle = typeof HAIR_STYLES[number]
 export type HairColor = keyof typeof HAIR_COLORS
 
 export const MOUTH = ['normal', 'teeth'] as const
-export type Mouth = typeof MOUTH[number]
+export type MouthType = typeof MOUTH[number]
 
 export const EYES = ['normal', 'confident', 'happy'] as const
 export type Eyes = typeof EYES[number]
@@ -130,7 +130,7 @@ export interface AvataramConfig {
     hairStyle: HairStyle,
     hairColor: HairColor,
 
-    mouth: Mouth,
+    mouthType: MouthType,
 
     eyes: Eyes,
     isBlushes: Boolean,

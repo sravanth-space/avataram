@@ -22,7 +22,7 @@ import {
   MOUTH,
   MUSTACHE,
   MUSTACHE_COLORS,
-  Mouth,
+  MouthType,
   Mustache,
   MustacheColor,
 } from "./types";
@@ -30,8 +30,8 @@ import { BackgroundColor } from "./types";
 
 function App() {
   const defaultConfig: AvataramConfig = {
-    backgroundColor: "green",
-    backgroundShape: "circle",
+    backgroundColor: "purple",
+    backgroundShape: "rounded",
 
     headColor: "white",
     headShape: "normal",
@@ -42,7 +42,7 @@ function App() {
     hairStyle: "curly",
     hairColor: "red",
 
-    mouth: "normal",
+    mouthType: "normal",
 
     eyes: "confident",
     isBlushes: true,
@@ -52,8 +52,6 @@ function App() {
 
     hasGlasses: false,
   };
-
-  const [config, setConfig] = useState({ ...defaultConfig });
 
   const handleDownload = () => {
     const svgElement = document.getElementById("svgRa");
@@ -100,7 +98,9 @@ function App() {
     defaultConfig.hairColor
   );
 
-  const [mouth, setMouth] = useState<Mouth>(defaultConfig.mouth);
+  const [mouthType, setMouthType] = useState<MouthType>(
+    defaultConfig.mouthType
+  );
 
   const [eyes, setEyes] = useState<Eyes>(defaultConfig.eyes);
   const [isBlushes, setIsBlushes] = useState<Boolean>(defaultConfig.isBlushes);
@@ -114,8 +114,6 @@ function App() {
     defaultConfig.hasGlasses
   );
 
-  // useEffect(() => {}, [backgroundColor]);
-  // console.log(Array<BackgroundShape>("normal"));
   return (
     <div className="container">
       <Avataram
@@ -127,7 +125,7 @@ function App() {
         bodyShape={bodyShape}
         hairStyle={hairStyle}
         hairColor={hairColor}
-        mouth={mouth}
+        mouthType={mouthType}
         eyes={eyes}
         isBlushes={isBlushes}
         mustache={mustache}
@@ -140,6 +138,7 @@ function App() {
         <li>
           <label>BackgroundColor:</label>
           <select
+            value={backgroundColor}
             title="BackgroundColor"
             onChange={e => {
               setBackgroundColor(e.target.value as BackgroundColor);
@@ -155,6 +154,7 @@ function App() {
         <li>
           <label>BackgroundShape:</label>
           <select
+            value={backgroundShape}
             title="BackgroundShape"
             onChange={e => {
               setBackgroundShape(e.target.value as BackgroundShape);
@@ -171,6 +171,7 @@ function App() {
         <li>
           <label>HeadColor:</label>
           <select
+            value={headColor}
             title="HeadColor"
             onChange={e => {
               setHeadColor(e.target.value as HeadColor);
@@ -187,6 +188,7 @@ function App() {
         <li>
           <label>HeadShape:</label>
           <select
+            value={headShape}
             title="HeadShape"
             onChange={e => {
               setHeadShape(e.target.value as HeadShape);
@@ -203,6 +205,7 @@ function App() {
         <li>
           <label>BodyColor:</label>
           <select
+            value={bodyColor}
             title="BodyColor"
             onChange={e => {
               setBodyColor(e.target.value as BodyColor);
@@ -219,6 +222,7 @@ function App() {
         <li>
           <label>BodyShape:</label>
           <select
+            value={bodyShape}
             title="BodyShape"
             onChange={e => {
               setBodyShape(e.target.value as BodyShape);
@@ -235,6 +239,7 @@ function App() {
         <li>
           <label>HairStyle:</label>
           <select
+            value={hairStyle}
             title="HairStyle"
             onChange={e => {
               setHairStyle(e.target.value as HairStyle);
@@ -251,6 +256,7 @@ function App() {
         <li>
           <label>HairColor:</label>
           <select
+            value={hairColor}
             title="HairColor"
             onChange={e => {
               setHairColor(e.target.value as HairColor);
@@ -265,11 +271,12 @@ function App() {
         </li>
 
         <li>
-          <label>Mouth:</label>
+          <label>MouthType:</label>
           <select
+            value={mouthType}
             title="Mouth"
             onChange={e => {
-              setMouth(e.target.value as Mouth);
+              setMouthType(e.target.value as MouthType);
             }}
           >
             {MOUTH.map((item, idx) => (
@@ -283,6 +290,7 @@ function App() {
         <li>
           <label>Eyes:</label>
           <select
+            value={eyes}
             title="Eyes"
             onChange={e => {
               setEyes(e.target.value as Eyes);
@@ -309,6 +317,7 @@ function App() {
         <li>
           <label>Mustache:</label>
           <select
+            value={mustache}
             title="Eyes"
             onChange={e => {
               setMustache(e.target.value as Mustache);
@@ -325,6 +334,7 @@ function App() {
         <li>
           <label>MustacheColor:</label>
           <select
+            value={mustacheColor}
             title="MustacheColor"
             onChange={e => {
               setMustacheColor(e.target.value as MustacheColor);

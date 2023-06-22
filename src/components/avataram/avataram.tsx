@@ -16,6 +16,14 @@ export default function Avataram(props: AvataramConfig) {
     headShape,
     bodyColor,
     bodyShape,
+    hairStyle,
+    hairColor,
+    mouthType,
+    eyes,
+    isBlushes,
+    mustache,
+    mustacheColor,
+    hasGlasses,
   } = props;
 
   return (
@@ -48,10 +56,10 @@ export default function Avataram(props: AvataramConfig) {
         <Body bodyColor={bodyColor} bodyShape={bodyShape} />
 
         {/* <!-- Hair --> */}
-        <Hair />
+        <Hair hairStyle={hairStyle} hairColor={hairColor} />
 
         {/* <!-- Mouth --> */}
-        <Mouth />
+        <Mouth mouthType={mouthType} />
 
         {/* <!-- Eyes --> */}
         <Eyes />

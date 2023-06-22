@@ -1,15 +1,18 @@
 import React from "react";
 import Classic01 from "./classic01";
+import { HairColor, HairStyle } from "../../types";
+import Classic02 from "./classic02";
+import Curly from "./curly";
 
-function Hair(props) {
-  let color;
-  switch (props.type) {
-    case "wide":
-      return <rect width="64" height="64" rx="32" fill={color} />;
-    case "thin":
-      return <rect width="64" height="64" rx="32" fill={color} />;
+function Hair(props: { hairStyle: HairStyle; hairColor: HairColor }) {
+  const { hairStyle, hairColor } = props;
+  switch (hairStyle) {
+    case "curly":
+      return <Curly hairColor={hairColor} />;
+    case "classic_2":
+      return <Classic02 hairColor={hairColor} />;
     default:
-      return <Classic01 />;
+      return <Classic01 hairColor={hairColor} />;
   }
 }
 
