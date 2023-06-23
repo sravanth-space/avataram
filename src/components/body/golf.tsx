@@ -6,7 +6,7 @@ export default function Golf(props: { bodyColor: BodyColor }) {
   const { primary, shadow } = BODY_COLORS[bodyColor];
   return (
     <>
-      <g clip-path="url(#clip2_274_4378)">
+      <g clipPath="url(#clip2_274_4378)">
         <rect x="7" y="60" width="40" height="23" rx="9" fill={primary} />
         <path
           d="M17 58H36V61C36 61 31 62 26.5 62C22 62 17 61 17 61V58Z"

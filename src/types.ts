@@ -114,8 +114,8 @@ export type EyesType = typeof EYES[number]
 
 export const MUSTACHE = ['freddy', 'hor-shoe', 'pencil-thin', 'pencil-thin-beard'] as const
 export type MustacheType = typeof MUSTACHE[number]
-export const MUSTACHE_COLORS = ["red", "brown", "black"] as const
-export type MustacheColor = typeof MUSTACHE_COLORS[number]
+// export const MUSTACHE_COLORS = ["red", "brown", "black"] as const
+export type MustacheColor = keyof typeof HAIR_COLORS
 
 export interface AvataramConfig {
     backgroundColor: BackgroundColor,

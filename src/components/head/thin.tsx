@@ -7,7 +7,7 @@ export default function Thin(props: { headColor: HeadColor }) {
   const { primary, secondary, shadow } = SKIN_COLORS[headColor];
   return (
     <>
-      <g clip-path="url(#clip0_92_378)">
+      <g clipPath="url(#clip0_92_378)">
         <circle cx="18" cy="37" r="5" fill={secondary} />
         <path
           d="M18 41H35V65.8705C35 65.8705 31.3571 68 26.5 68C21.6429 68 18 64.5226 18 64.5226V41Z"

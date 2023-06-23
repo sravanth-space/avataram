@@ -22,7 +22,7 @@ import {
   HeadShape,
   MOUTH,
   MUSTACHE,
-  MUSTACHE_COLORS,
+  // MUSTACHE_COLORS,
   MouthType,
   MustacheType,
   MustacheColor,
@@ -46,7 +46,7 @@ function App() {
     mouthType: "normal",
 
     eyesType: "confident",
-    isBlushes: true,
+    isBlushes: false,
 
     mustacheType: "freddy",
     mustacheColor: "black",
@@ -343,7 +343,7 @@ function App() {
               setMustacheColor(e.target.value as MustacheColor);
             }}
           >
-            {MUSTACHE_COLORS.map((item, idx) => (
+            {Object.keys(HAIR_COLORS).map((item, idx) => (
               <option value={item} key={idx}>
                 {item.toUpperCase()}
               </option>

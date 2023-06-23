@@ -1,5 +1,5 @@
 import React from "react";
-import { MustacheColor } from "../../types";
+import { HAIR_COLORS, MustacheColor } from "../../types";
 
 export default function Freddy(props: { mustacheColor: MustacheColor }) {
   const { mustacheColor } = props;
@@ -9,7 +9,7 @@ export default function Freddy(props: { mustacheColor: MustacheColor }) {
         <g clipPath="url(#clip7_274_4378)">
           <path
             d="M28 46C28 44.3431 29.3431 43 31 43H40C41.6569 43 43 44.3431 43 46H28Z"
-            fill="#1B0B47"
+            fill={HAIR_COLORS[mustacheColor]}
           />
         </g>
       </g>

@@ -1,5 +1,5 @@
 import React from "react";
-import { MustacheColor } from "../../types";
+import { HAIR_COLORS, MustacheColor } from "../../types";
 
 export default function PencilThinBeard(props: {
   mustacheColor: MustacheColor;
@@ -11,7 +11,7 @@ export default function PencilThinBeard(props: {
         <g clipPath="url(#clip7_274_4378)">
           <path
             d="M26.5 45C26.5 45 31 44.5 37.5 43V45C36 45.6667 32 46.6 30 47C27.5 47.5 26.5 45 26.5 45Z"
-            fill="#1B0B47"
+            fill={HAIR_COLORS[mustacheColor]}
           />
           <path
             d="M48 44.7558C48 44.7558 44 44 38 43V45C39.4286 45.5853 42.5952 46.1488 44.5 46.5C46.881 46.939 48 44.7558 48 44.7558Z"
