@@ -1,7 +1,16 @@
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 
-
+header {
+  text-align: center;
+}

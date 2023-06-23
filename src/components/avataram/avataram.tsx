@@ -31,11 +31,8 @@ export default function Avataram(props: AvataramConfig) {
     <svg
       id="svgRa"
       style={{
-        width: "50%",
-        height: "50%",
-        position: "absolute",
-        top: "23%",
-        right: "23%",
+        width: "250px",
+        height: "100%",
       }}
       width="80"
       height="80"

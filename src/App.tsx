@@ -119,248 +119,258 @@ function App() {
 
   return (
     <div className="container">
-      <Avataram
-        backgroundColor={backgroundColor}
-        backgroundShape={backgroundShape}
-        headColor={headColor}
-        headShape={headShape}
-        bodyColor={bodyColor}
-        bodyShape={bodyShape}
-        hairStyle={hairStyle}
-        hairColor={hairColor}
-        mouthType={mouthType}
-        eyesType={eyesType}
-        isBlushes={isBlushes}
-        mustacheType={mustacheType}
-        mustacheColor={mustacheColor}
-        hasGlasses={hasGlasses}
-      />
-      <button onClick={handleDownload}>Download</button>
+      <header>
+        <h1>Avataram</h1>
+      </header>
 
-      <ul>
-        <li>
-          <label>BackgroundColor:</label>
-          <select
-            value={backgroundColor}
-            title="BackgroundColor"
-            onChange={e => {
-              setBackgroundColor(e.target.value as BackgroundColor);
-            }}
-          >
-            {Object.keys(BACKGROUND_COLORS).map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
-        <li>
-          <label>BackgroundShape:</label>
-          <select
-            value={backgroundShape}
-            title="BackgroundShape"
-            onChange={e => {
-              setBackgroundShape(e.target.value as BackgroundShape);
-            }}
-          >
-            {Object.keys(BACKGROUND_SHAPES).map((item, idx) => (
-              <option value={BACKGROUND_SHAPES[item]} key={idx}>
-                {BACKGROUND_SHAPES[item].toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+      <div className="main">
+        <div>
+          <Avataram
+            backgroundColor={backgroundColor}
+            backgroundShape={backgroundShape}
+            headColor={headColor}
+            headShape={headShape}
+            bodyColor={bodyColor}
+            bodyShape={bodyShape}
+            hairStyle={hairStyle}
+            hairColor={hairColor}
+            mouthType={mouthType}
+            eyesType={eyesType}
+            isBlushes={isBlushes}
+            mustacheType={mustacheType}
+            mustacheColor={mustacheColor}
+            hasGlasses={hasGlasses}
+          />
+        </div>
+        <div>
+          <ul>
+            <li>
+              <label>BackgroundColor:</label>
+              <select
+                value={backgroundColor}
+                title="BackgroundColor"
+                onChange={e => {
+                  setBackgroundColor(e.target.value as BackgroundColor);
+                }}
+              >
+                {Object.keys(BACKGROUND_COLORS).map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
+            <li>
+              <label>BackgroundShape:</label>
+              <select
+                value={backgroundShape}
+                title="BackgroundShape"
+                onChange={e => {
+                  setBackgroundShape(e.target.value as BackgroundShape);
+                }}
+              >
+                {Object.keys(BACKGROUND_SHAPES).map((item, idx) => (
+                  <option value={BACKGROUND_SHAPES[item]} key={idx}>
+                    {BACKGROUND_SHAPES[item].toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>HeadColor:</label>
-          <select
-            value={headColor}
-            title="HeadColor"
-            onChange={e => {
-              setHeadColor(e.target.value as HeadColor);
-            }}
-          >
-            {HEAD_COLORS.map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+            <li>
+              <label>HeadColor:</label>
+              <select
+                value={headColor}
+                title="HeadColor"
+                onChange={e => {
+                  setHeadColor(e.target.value as HeadColor);
+                }}
+              >
+                {HEAD_COLORS.map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>HeadShape:</label>
-          <select
-            value={headShape}
-            title="HeadShape"
-            onChange={e => {
-              setHeadShape(e.target.value as HeadShape);
-            }}
-          >
-            {HEAD_SHAPES.map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+            <li>
+              <label>HeadShape:</label>
+              <select
+                value={headShape}
+                title="HeadShape"
+                onChange={e => {
+                  setHeadShape(e.target.value as HeadShape);
+                }}
+              >
+                {HEAD_SHAPES.map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>BodyColor:</label>
-          <select
-            value={bodyColor}
-            title="BodyColor"
-            onChange={e => {
-              setBodyColor(e.target.value as BodyColor);
-            }}
-          >
-            {Object.keys(BODY_COLORS).map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+            <li>
+              <label>BodyColor:</label>
+              <select
+                value={bodyColor}
+                title="BodyColor"
+                onChange={e => {
+                  setBodyColor(e.target.value as BodyColor);
+                }}
+              >
+                {Object.keys(BODY_COLORS).map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>BodyShape:</label>
-          <select
-            value={bodyShape}
-            title="BodyShape"
-            onChange={e => {
-              setBodyShape(e.target.value as BodyShape);
-            }}
-          >
-            {BODY_SHAPES.map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+            <li>
+              <label>BodyShape:</label>
+              <select
+                value={bodyShape}
+                title="BodyShape"
+                onChange={e => {
+                  setBodyShape(e.target.value as BodyShape);
+                }}
+              >
+                {BODY_SHAPES.map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>HairStyle:</label>
-          <select
-            value={hairStyle}
-            title="HairStyle"
-            onChange={e => {
-              setHairStyle(e.target.value as HairStyle);
-            }}
-          >
-            {HAIR_STYLES.map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+            <li>
+              <label>HairStyle:</label>
+              <select
+                value={hairStyle}
+                title="HairStyle"
+                onChange={e => {
+                  setHairStyle(e.target.value as HairStyle);
+                }}
+              >
+                {HAIR_STYLES.map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>HairColor:</label>
-          <select
-            value={hairColor}
-            title="HairColor"
-            onChange={e => {
-              setHairColor(e.target.value as HairColor);
-            }}
-          >
-            {Object.keys(HAIR_COLORS).map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+            <li>
+              <label>HairColor:</label>
+              <select
+                value={hairColor}
+                title="HairColor"
+                onChange={e => {
+                  setHairColor(e.target.value as HairColor);
+                }}
+              >
+                {Object.keys(HAIR_COLORS).map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>MouthType:</label>
-          <select
-            value={mouthType}
-            title="Mouth"
-            onChange={e => {
-              setMouthType(e.target.value as MouthType);
-            }}
-          >
-            {MOUTH.map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+            <li>
+              <label>MouthType:</label>
+              <select
+                value={mouthType}
+                title="Mouth"
+                onChange={e => {
+                  setMouthType(e.target.value as MouthType);
+                }}
+              >
+                {MOUTH.map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>Eyes:</label>
-          <select
-            value={eyesType}
-            title="Eyes"
-            onChange={e => {
-              setEyesType(e.target.value as EyesType);
-            }}
-          >
-            {EYES.map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+            <li>
+              <label>Eyes:</label>
+              <select
+                value={eyesType}
+                title="Eyes"
+                onChange={e => {
+                  setEyesType(e.target.value as EyesType);
+                }}
+              >
+                {EYES.map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>Blushes:</label>
-          <input
-            type="checkbox"
-            onChange={() => {
-              setIsBlushes(!isBlushes);
-            }}
-          ></input>
-        </li>
+            <li>
+              <label>Blushes:</label>
+              <input
+                type="checkbox"
+                onChange={() => {
+                  setIsBlushes(!isBlushes);
+                }}
+              ></input>
+            </li>
 
-        <li>
-          <label>Mustache:</label>
-          <select
-            value={mustacheType}
-            title="Eyes"
-            onChange={e => {
-              setMustacheType(e.target.value as MustacheType);
-            }}
-          >
-            {MUSTACHE.map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+            <li>
+              <label>Mustache:</label>
+              <select
+                value={mustacheType}
+                title="Eyes"
+                onChange={e => {
+                  setMustacheType(e.target.value as MustacheType);
+                }}
+              >
+                {MUSTACHE.map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>MustacheColor:</label>
-          <select
-            value={mustacheColor}
-            title="MustacheColor"
-            onChange={e => {
-              setMustacheColor(e.target.value as MustacheColor);
-            }}
-          >
-            {Object.keys(HAIR_COLORS).map((item, idx) => (
-              <option value={item} key={idx}>
-                {item.toUpperCase()}
-              </option>
-            ))}
-          </select>
-        </li>
+            <li>
+              <label>MustacheColor:</label>
+              <select
+                value={mustacheColor}
+                title="MustacheColor"
+                onChange={e => {
+                  setMustacheColor(e.target.value as MustacheColor);
+                }}
+              >
+                {Object.keys(HAIR_COLORS).map((item, idx) => (
+                  <option value={item} key={idx}>
+                    {item.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </li>
 
-        <li>
-          <label>Glasses:</label>
-          <input
-            type="checkbox"
-            onChange={() => {
-              setHasGlasses(!hasGlasses);
-            }}
-          ></input>
-        </li>
-      </ul>
+            <li>
+              <label>Glasses:</label>
+              <input
+                type="checkbox"
+                onChange={() => {
+                  setHasGlasses(!hasGlasses);
+                }}
+              ></input>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <button onClick={handleDownload}>Download SVG</button>
     </div>
   );
 }
