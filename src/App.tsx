@@ -145,7 +145,7 @@ function App() {
         <div>
           <ul>
             <li>
-              <label>BackgroundColor:</label>
+              <label>Background Color:</label>
               <select
                 value={backgroundColor}
                 title="BackgroundColor"
@@ -161,7 +161,7 @@ function App() {
               </select>
             </li>
             <li>
-              <label>BackgroundShape:</label>
+              <label>Background Shape:</label>
               <select
                 value={backgroundShape}
                 title="BackgroundShape"
@@ -178,7 +178,7 @@ function App() {
             </li>
 
             <li>
-              <label>HeadColor:</label>
+              <label>Face Color:</label>
               <select
                 value={headColor}
                 title="HeadColor"
@@ -195,7 +195,7 @@ function App() {
             </li>
 
             <li>
-              <label>HeadShape:</label>
+              <label>Face Shape:</label>
               <select
                 value={headShape}
                 title="HeadShape"
@@ -212,7 +212,7 @@ function App() {
             </li>
 
             <li>
-              <label>BodyColor:</label>
+              <label>Shirt Color:</label>
               <select
                 value={bodyColor}
                 title="BodyColor"
@@ -229,7 +229,7 @@ function App() {
             </li>
 
             <li>
-              <label>BodyShape:</label>
+              <label>Shirt Type:</label>
               <select
                 value={bodyShape}
                 title="BodyShape"
@@ -246,7 +246,7 @@ function App() {
             </li>
 
             <li>
-              <label>HairStyle:</label>
+              <label>Hair Style:</label>
               <select
                 value={hairStyle}
                 title="HairStyle"
@@ -263,7 +263,7 @@ function App() {
             </li>
 
             <li>
-              <label>HairColor:</label>
+              <label>Hair Color:</label>
               <select
                 value={hairColor}
                 title="HairColor"
@@ -280,7 +280,7 @@ function App() {
             </li>
 
             <li>
-              <label>MouthType:</label>
+              <label>Mouth Type:</label>
               <select
                 value={mouthType}
                 title="Mouth"
@@ -341,7 +341,7 @@ function App() {
             </li>
 
             <li>
-              <label>MustacheColor:</label>
+              <label>Mustache Color:</label>
               <select
                 value={mustacheColor}
                 title="MustacheColor"
