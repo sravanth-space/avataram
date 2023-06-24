@@ -22,12 +22,12 @@ import {
   HeadShape,
   MOUTH,
   MUSTACHE,
-  // MUSTACHE_COLORS,
   MouthType,
   MustacheType,
   MustacheColor,
+  BackgroundColor,
 } from "./types";
-import { BackgroundColor } from "./types";
+import { v4 } from "uuid";
 
 function App() {
   const defaultConfig: AvataramConfig = {
@@ -64,65 +64,62 @@ function App() {
 
     const link = document.createElement("a");
     link.href = svgURL;
-    link.download = "filename.svg";
+    link.download = v4() + "_" + new Date().toLocaleDateString() + ".svg";
 
     link.click();
 
     URL.revokeObjectURL(svgURL);
   };
 
-  const [backgroundColor, setBackgroundColor] = useState<BackgroundColor>(
-    defaultConfig.backgroundColor
-  );
-  const [backgroundShape, setBackgroundShape] = useState<BackgroundShape>(
-    defaultConfig.backgroundShape
-  );
+  const [state, setState] = useState({ ...defaultConfig });
+  const handleClick = (key, val) => {
+    setState({
+      ...state,
+      [key]: val,
+    });
+  };
 
-  const [headColor, setHeadColor] = useState<HeadColor>(
-    defaultConfig.headColor
-  );
-  const [headShape, setHeadShape] = useState<HeadShape>(
-    defaultConfig.headShape
-  );
+  const handleCopy = () => {
+    const svgElement = document.getElementById("svgRa");
 
-  const [bodyShape, setBodyShape] = useState<BodyShape>(
-    defaultConfig.bodyShape
-  );
-  const [bodyColor, setBodyColor] = useState<BodyColor>(
-    defaultConfig.bodyColor
-  );
+    const svgString = svgElement!.outerHTML;
 
-  const [hairStyle, setHairStyle] = useState<HairStyle>(
-    defaultConfig.hairStyle
-  );
-  const [hairColor, setHairColor] = useState<HairColor>(
-    defaultConfig.hairColor
-  );
+    const type = "text/plain";
+    const blob = new Blob([svgString], { type });
+    const data = [new ClipboardItem({ [type]: blob })];
 
-  const [mouthType, setMouthType] = useState<MouthType>(
-    defaultConfig.mouthType
-  );
+    navigator.clipboard.write(data).then(
+      () => {
+        alert("Copied to clipboard!");
+      },
+      () => {
+        alert("Failed to copy");
+      }
+    );
+  };
 
-  const [eyesType, setEyesType] = useState<EyesType>(defaultConfig.eyesType);
-  const [isBlushes, setIsBlushes] = useState<Boolean>(defaultConfig.isBlushes);
-
-  const [mustacheType, setMustacheType] = useState<MustacheType>(
-    defaultConfig.mustacheType
-  );
-  const [mustacheColor, setMustacheColor] = useState<MustacheColor>(
-    defaultConfig.mustacheColor
-  );
-
-  const [hasGlasses, setHasGlasses] = useState<Boolean>(
-    defaultConfig.hasGlasses
-  );
+  const {
+    backgroundColor,
+    backgroundShape,
+    headColor,
+    headShape,
+    bodyShape,
+    bodyColor,
+    hairStyle,
+    hairColor,
+    mouthType,
+    eyesType,
+    isBlushes,
+    mustacheType,
+    mustacheColor,
+    hasGlasses,
+  } = state;
 
   return (
     <div className="container">
       <header>
         <h1>Avataram</h1>
       </header>
-
       <div className="main">
         <div>
           <Avataram
@@ -141,6 +138,10 @@ function App() {
             mustacheColor={mustacheColor}
             hasGlasses={hasGlasses}
           />
+          <div>
+            <button onClick={handleDownload}>Download SVG</button>
+            <button onClick={handleCopy}>Copy Code</button>
+          </div>
         </div>
         <div>
           <ul>
@@ -149,9 +150,12 @@ function App() {
               <select
                 value={backgroundColor}
                 title="BackgroundColor"
-                onChange={e => {
-                  setBackgroundColor(e.target.value as BackgroundColor);
-                }}
+                onChange={e =>
+                  handleClick(
+                    "backgroundColor",
+                    e.target.value as BackgroundColor
+                  )
+                }
               >
                 {Object.keys(BACKGROUND_COLORS).map((item, idx) => (
                   <option value={item} key={idx}>
@@ -165,9 +169,12 @@ function App() {
               <select
                 value={backgroundShape}
                 title="BackgroundShape"
-                onChange={e => {
-                  setBackgroundShape(e.target.value as BackgroundShape);
-                }}
+                onChange={e =>
+                  handleClick(
+                    "backgroundShape",
+                    e.target.value as BackgroundShape
+                  )
+                }
               >
                 {Object.keys(BACKGROUND_SHAPES).map((item, idx) => (
                   <option value={BACKGROUND_SHAPES[item]} key={idx}>
@@ -182,9 +189,9 @@ function App() {
               <select
                 value={headColor}
                 title="HeadColor"
-                onChange={e => {
-                  setHeadColor(e.target.value as HeadColor);
-                }}
+                onChange={e =>
+                  handleClick("headColor", e.target.value as HeadColor)
+                }
               >
                 {HEAD_COLORS.map((item, idx) => (
                   <option value={item} key={idx}>
@@ -199,9 +206,9 @@ function App() {
               <select
                 value={headShape}
                 title="HeadShape"
-                onChange={e => {
-                  setHeadShape(e.target.value as HeadShape);
-                }}
+                onChange={e =>
+                  handleClick("headShape", e.target.value as HeadShape)
+                }
               >
                 {HEAD_SHAPES.map((item, idx) => (
                   <option value={item} key={idx}>
@@ -216,9 +223,9 @@ function App() {
               <select
                 value={bodyColor}
                 title="BodyColor"
-                onChange={e => {
-                  setBodyColor(e.target.value as BodyColor);
-                }}
+                onChange={e =>
+                  handleClick("bodyColor", e.target.value as BodyColor)
+                }
               >
                 {Object.keys(BODY_COLORS).map((item, idx) => (
                   <option value={item} key={idx}>
@@ -233,9 +240,9 @@ function App() {
               <select
                 value={bodyShape}
                 title="BodyShape"
-                onChange={e => {
-                  setBodyShape(e.target.value as BodyShape);
-                }}
+                onChange={e =>
+                  handleClick("bodyShape", e.target.value as BodyShape)
+                }
               >
                 {BODY_SHAPES.map((item, idx) => (
                   <option value={item} key={idx}>
@@ -250,9 +257,9 @@ function App() {
               <select
                 value={hairStyle}
                 title="HairStyle"
-                onChange={e => {
-                  setHairStyle(e.target.value as HairStyle);
-                }}
+                onChange={e =>
+                  handleClick("hairStyle", e.target.value as HairStyle)
+                }
               >
                 {HAIR_STYLES.map((item, idx) => (
                   <option value={item} key={idx}>
@@ -267,9 +274,9 @@ function App() {
               <select
                 value={hairColor}
                 title="HairColor"
-                onChange={e => {
-                  setHairColor(e.target.value as HairColor);
-                }}
+                onChange={e =>
+                  handleClick("hairColor", e.target.value as HairColor)
+                }
               >
                 {Object.keys(HAIR_COLORS).map((item, idx) => (
                   <option value={item} key={idx}>
@@ -284,9 +291,9 @@ function App() {
               <select
                 value={mouthType}
                 title="Mouth"
-                onChange={e => {
-                  setMouthType(e.target.value as MouthType);
-                }}
+                onChange={e =>
+                  handleClick("mouthType", e.target.value as MouthType)
+                }
               >
                 {MOUTH.map((item, idx) => (
                   <option value={item} key={idx}>
@@ -301,9 +308,9 @@ function App() {
               <select
                 value={eyesType}
                 title="Eyes"
-                onChange={e => {
-                  setEyesType(e.target.value as EyesType);
-                }}
+                onChange={e =>
+                  handleClick("eyesType", e.target.value as EyesType)
+                }
               >
                 {EYES.map((item, idx) => (
                   <option value={item} key={idx}>
@@ -317,9 +324,7 @@ function App() {
               <label>Blushes:</label>
               <input
                 type="checkbox"
-                onChange={() => {
-                  setIsBlushes(!isBlushes);
-                }}
+                onChange={e => handleClick("isBlushes", e.target.checked)}
               ></input>
             </li>
 
@@ -328,9 +333,9 @@ function App() {
               <select
                 value={mustacheType}
                 title="Eyes"
-                onChange={e => {
-                  setMustacheType(e.target.value as MustacheType);
-                }}
+                onChange={e =>
+                  handleClick("mustacheType", e.target.value as MustacheType)
+                }
               >
                 {MUSTACHE.map((item, idx) => (
                   <option value={item} key={idx}>
@@ -345,9 +350,9 @@ function App() {
               <select
                 value={mustacheColor}
                 title="MustacheColor"
-                onChange={e => {
-                  setMustacheColor(e.target.value as MustacheColor);
-                }}
+                onChange={e =>
+                  handleClick("mustacheColor", e.target.value as MustacheColor)
+                }
               >
                 {Object.keys(HAIR_COLORS).map((item, idx) => (
                   <option value={item} key={idx}>
@@ -361,16 +366,14 @@ function App() {
               <label>Glasses:</label>
               <input
                 type="checkbox"
-                onChange={() => {
-                  setHasGlasses(!hasGlasses);
-                }}
+                onChange={e =>
+                  handleClick("hasGlasses", e.target.checked as Boolean)
+                }
               ></input>
             </li>
           </ul>
         </div>
       </div>
-
-      <button onClick={handleDownload}>Download SVG</button>
     </div>
   );
 }
