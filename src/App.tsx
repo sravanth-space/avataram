@@ -27,7 +27,6 @@ import {
   MustacheColor,
   BackgroundColor,
 } from "./types";
-import { v4 } from "uuid";
 
 function App() {
   const defaultConfig: AvataramConfig = {
@@ -64,7 +63,8 @@ function App() {
 
     const link = document.createElement("a");
     link.href = svgURL;
-    link.download = v4() + "_" + new Date().toLocaleDateString() + ".svg";
+    link.download =
+      crypto.randomUUID() + "_" + new Date().toLocaleDateString() + ".svg";
 
     link.click();
 
